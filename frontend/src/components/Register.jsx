@@ -1,8 +1,11 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import API from "../api/axios";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -14,7 +17,7 @@ const Register = () => {
    
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!form.username || !form.email || !form.password) {
@@ -25,6 +28,16 @@ const Register = () => {
     if (form.password.length < 6) {
       toast.error("Password must be at least 6 characters");
       return;
+    }
+
+    try {
+      const res = await API.post("/auth/register", form);
+      
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+    } catch (e) {
+      console.log(e)
     }
 
     toast.success("Registered successfully!");
