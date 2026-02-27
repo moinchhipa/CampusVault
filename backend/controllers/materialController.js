@@ -1,7 +1,7 @@
 const Material = require("../models/Material");
 
 exports.uploadMaterial = async (req, res) => {
-  res.json({ message: "protected route working" });
+  res.json({ message: "protected route working and admin middleware is also working" });
   console.log(req.user);
 
   //   try {
