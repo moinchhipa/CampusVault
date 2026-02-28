@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import UploadForm from "./components/UploadForm";
 import { Toaster } from "react-hot-toast";
 import Home from "./components/Home";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
@@ -29,7 +30,14 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/upload" element={<UploadForm />} />
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute>
+                <UploadForm />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
 
         <Footer />

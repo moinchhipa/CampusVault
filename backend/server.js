@@ -31,12 +31,17 @@ mongoose
   });
 
 app.use((err, req, res, next) => {
+  console.error("Global error:", err);
+
   if (err.code === "LIMIT_FILE_SIZE") {
-    return res
-      .status(400)
-      .json({ message: "File size should be less than 15MB" });
+    return res.status(400).json({
+      message: "File too large (Max 15MB)",
+    });
   }
-  res.status(500).json({ message: err.message });
+
+  res.status(500).json({
+    message: err.message,
+  });
 });
 
 app.listen(PORT, () => {
