@@ -2,6 +2,10 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api/axios";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -40,48 +44,69 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md">
-        <h2 className="text-3xl font-semibold text-center mb-8 text-gray-800">
-          Welcome Back
-        </h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 p-6">
+  <Card className="w-full max-w-md shadow-2xl relative">
+    
+    {/* Back Button */}
+    <Button
+      variant="ghost"
+      className="absolute top-4 left-4"
+      onClick={() => navigate(-1)}
+    >
+      ← Back
+    </Button>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <input
+    <CardHeader>
+      <CardTitle className="text-3xl text-center font-semibold tracking-tight">
+        Welcome Back
+      </CardTitle>
+    </CardHeader>
+
+    <CardContent>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        
+        {/* Email */}
+        <div className="space-y-2">
+          <Label>Email</Label>
+          <Input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Enter your email"
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
           />
+        </div>
 
-          <input
+        {/* Password */}
+        <div className="space-y-2">
+          <Label>Password</Label>
+          <Input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Enter your password"
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
           />
-
-          <button
-            onClick={handleSubmit}
-            type="submit"
-            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
-          >
-            Login
-          </button>
-        </form>
-        <div className="text-center text-sm text-gray-600 mt-6">
-          Don’t have an account?{" "}
-          <Link
-            to="/register"
-            className="text-black font-medium hover:underline"
-          >
-            Register
-          </Link>
         </div>
+
+        {/* Submit */}
+        <Button type="submit" className="w-full py-6 text-base">
+          Login
+        </Button>
+
+      </form>
+
+      {/* Register Link */}
+      <div className="text-center text-sm text-muted-foreground mt-6">
+        Don’t have an account?{" "}
+        <Link
+          to="/register"
+          className="font-medium text-foreground hover:underline"
+        >
+          Register
+        </Link>
       </div>
-    </div>
+    </CardContent>
+  </Card>
+</div>
   );
 };
 

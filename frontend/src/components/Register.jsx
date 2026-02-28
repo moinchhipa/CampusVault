@@ -2,6 +2,10 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../api/axios";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
 const Register = () => {
   const navigate = useNavigate();
@@ -45,56 +49,80 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md">
-        
-        <h2 className="text-3xl font-semibold text-center mb-8 text-gray-800">
-          Create Account
-        </h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 p-6">
+  <Card className="w-full max-w-md shadow-2xl relative">
+    
+    {/* Back Button */}
+    <Button
+      variant="ghost"
+      className="absolute top-4 left-4"
+      onClick={() => navigate(-1)}
+    >
+      ← Back
+    </Button>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          
-          <input
+    <CardHeader>
+      <CardTitle className="text-3xl text-center font-semibold tracking-tight">
+        Create Account
+      </CardTitle>
+    </CardHeader>
+
+    <CardContent>
+      <form onSubmit={handleSubmit} className="space-y-6">
+
+        {/* Username */}
+        <div className="space-y-2">
+          <Label>Username</Label>
+          <Input
             type="text"
             name="username"
-            placeholder="Username"
+            placeholder="Enter username"
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
           />
+        </div>
 
-          <input
+        {/* Email */}
+        <div className="space-y-2">
+          <Label>Email</Label>
+          <Input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Enter email"
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
           />
+        </div>
 
-          <input
+        {/* Password */}
+        <div className="space-y-2">
+          <Label>Password</Label>
+          <Input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Create password"
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black"
           />
+        </div>
 
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-3 rounded-lg hover:bg-gray-800 transition"
-          >
-            Register
-          </button>
-        </form>
-           
-           <div className="text-center text-sm text-gray-600 mt-6">
-            Already have an account?{" "}
-            <Link to="/login"
-            className="text-black font-medium hover:underline">
-              Login
-            </Link>
-           </div>
+        {/* Submit */}
+        <Button type="submit" className="w-full py-6 text-base">
+          Register
+        </Button>
+
+      </form>
+
+      {/* Login Redirect */}
+      <div className="text-center text-sm text-muted-foreground mt-6">
+        Already have an account?{" "}
+        <Link
+          to="/login"
+          className="font-medium text-foreground hover:underline"
+        >
+          Login
+        </Link>
       </div>
-    </div>
+    </CardContent>
+  </Card>
+</div>
   );
 };
 
