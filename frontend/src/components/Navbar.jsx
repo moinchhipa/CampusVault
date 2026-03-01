@@ -1,45 +1,75 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
- return (
-  <nav className="sticky top-0 z-50 
-                  bg-white/50 backdrop-blur-md 
-                  border-b border-slate-200/60">
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-      {/* Logo */}
-      <h1 className="text-2xl font-bold tracking-tight text-slate-800">
-        <Link to="/" className="hover:text-indigo-600 transition-colors">
-          CampusVault
-        </Link>
-      </h1>
+  // Re-check token whenever route changes
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, [location]);
 
-      {/* Right Side */}
-      <div className="flex items-center gap-6">
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken(null);
+    navigate("/login");
+  };
 
-        <Link
-          to="/login"
-          className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
-        >
-          Login
-        </Link>
+  return (
+    <nav className="sticky top-0 z-50 
+                    bg-white/50 backdrop-blur-md 
+                    border-b border-slate-200/60">
 
-        <Link
-          to="/register"
-          className="px-5 py-2 rounded-xl
-                     bg-linear-to-r from-indigo-600 to-purple-600
-                     text-white shadow-md
-                     hover:shadow-lg
-                     transition-all duration-300 hover:-translate-y-0.5"
-        >
-          Register
-        </Link>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
+        {/* Logo */}
+        <h1 className="text-2xl font-bold tracking-tight text-slate-800">
+          <Link to="/" className="hover:text-indigo-600 transition-colors">
+            CampusVault
+          </Link>
+        </h1>
+
+        {/* Right Side */}
+        <div className="flex items-center gap-6">
+          {!token ? (
+            <>
+              <Link
+                to="/login"
+                className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
+              >
+                Login
+              </Link>
+
+              <Link
+                to="/register"
+                className="px-5 py-2 rounded-xl
+                bg-gradient-to-r from-indigo-600 to-purple-600
+                text-white shadow-md
+                hover:shadow-lg
+                transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Register
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className="px-5 py-2 rounded-xl
+                bg-gradient-to-r from-indigo-600 to-purple-600
+                text-white shadow-md cursor-pointer
+                hover:shadow-lg
+                transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Logout
+            </button>
+          )}
+        </div>
       </div>
-    </div>
-  </nav>
-);
+    </nav>
+  );
 };
 
 export default Navbar;
