@@ -63,7 +63,7 @@ const MaterialsPage = () => {
     : null;
 
   return (
-    <div className="relative min-h-screen bg-[#f8fafc] w-full min-w-0 overflow-x-hidden" style={{marginBottom: "50px"}}>
+    <div className="relative min-h-screen bg-[#f8fafc] w-full min-w-0 overflow-x-hidden">
       {/* Background — match Home */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 -z-10" />
 
