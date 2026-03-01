@@ -63,7 +63,7 @@ const Login = () => {
       className="absolute top-4 left-4 text-slate-500 hover:text-slate-900"
       onClick={() => navigate("/")}
     >
-      ← Back
+     <i class="fa-solid fa-angle-left"></i>  Back
     </Button>
 
     <CardHeader className="pt-10">

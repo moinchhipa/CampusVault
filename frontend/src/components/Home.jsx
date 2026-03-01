@@ -1,114 +1,211 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import DepartmentCard from "./ui/DepartmentCard";
-
-
+import { motion } from "framer-motion";
 function Home() {
   const navigate = useNavigate();
 
-
-
   const Departments = [
-  {
-    name: "BSC.IT",
-    description: "Bachelor of Science in Information Technology",
-    route: "/show?department=BSCIT",
-  },
-  {
-    name: "BTECH.IT",
-    description: "Bachelor of Technology in Information Technology",
-    route: "/show?department=BTECHIT",
-  },
-  {
-    name: "BTECH.CS",
-    description: "Bachelor of Technology in Computer Science",
-    route: "/show?department=BTECHCS",
-  },
-  {
-    name: "BTECH.AIDS",
-    description: "Bachelor of Technology in Artificial Intelligence and Data Science",
-    route: "/show?department=BTECHAIDS",
-  },
-  {
-    name: "BCA",
-    description: "Bachelor of Computer Applications",
-    route: "/show?department=BCA",
-  },
-  {
-    name: "MCA",
-    description: "Master of Computer Applications",
-    route: "/show?department=MCA",
-  },
-]
- 
+    {
+      name: "BSC.IT",
+      description: "Bachelor of Science in Information Technology",
+      route: "/show?department=BSCIT",
+    },
+    {
+      name: "BTECH.IT",
+      description: "Bachelor of Technology in Information Technology",
+      route: "/show?department=BTECHIT",
+    },
+    {
+      name: "BTECH.CS",
+      description: "Bachelor of Technology in Computer Science",
+      route: "/show?department=BTECHCS",
+    },
+    {
+      name: "BTECH.AIDS",
+      description:
+        "Bachelor of Technology in Artificial Intelligence and Data Science",
+      route: "/show?department=BTECHAIDS",
+    },
+    {
+      name: "BCA",
+      description: "Bachelor of Computer Applications",
+      route: "/show?department=BCA",
+    },
+    {
+      name: "MCA",
+      description: "Master of Computer Applications",
+      route: "/show?department=MCA",
+    },
+  ];
+
   return (
-  <div className="relative bg-[#f8fafc] w-full min-w-0 overflow-x-hidden">
-
+  <div className="relative bg-[#f8fafc]">
     {/* Background */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 -z-10" />
+    <div className="absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-100 -z-10"></div>
 
-    {/* HERO SECTION (Sticky) */}
-    <section className="sticky top-0 min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 sm:pt-20 pb-8 overflow-hidden">
+    {/* HERO SECTION */}
+    <section className="sticky top-0 min-h-screen flex flex-col pt-20 items-center text-center px-6 sm:px-8 overflow-hidden">
 
-      {/* Soft ambient blobs */}
-      <div className="absolute -top-40 -left-40 w-125 h-125 bg-indigo-400/20 rounded-full blur-[120px]"></div>
-      <div className="absolute top-1/3 -right-40 w-125 h-125 bg-pink-400/20 rounded-full blur-[120px]"></div>
+      {/* ICONS */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none hidden sm:block">
+        
+        <lord-icon
+          src="https://cdn.lordicon.com/wloilxuq.json"
+          trigger="loop"
+          delay="1500"
+          colors="primary:#6366f1"
+          style={{ width: "85px", height: "85px", position: "absolute", top: "18%", left: "6%", opacity: 0.24 }}
+        ></lord-icon>
 
-      {/* Badge */}
-      <div className="mb-6 px-4 py-2 rounded-full 
-                      bg-indigo-50 text-indigo-600 text-sm font-medium relative z-10">
-        📂  Smart Academic Platform
+        <lord-icon
+          src="https://cdn.lordicon.com/puvaffet.json"
+          trigger="loop"
+          delay="2200"
+          colors="primary:#8b5cf6"
+          style={{ width: "70px", height: "70px", position: "absolute", bottom: "30%", left: "12%", opacity: 0.22 }}
+        ></lord-icon>
+
+        <lord-icon
+          src="https://cdn.lordicon.com/jeuxydnh.json"
+          trigger="loop"
+          delay="1800"
+          colors="primary:#8b5cf6"
+          style={{ width: "70px", height: "70px", position: "absolute", top: "20%", right: "8%", opacity: 0.26 }}
+        ></lord-icon>
+
+        <lord-icon
+          src="https://cdn.lordicon.com/qhgmphtg.json"
+          trigger="loop"
+          delay="2500"
+          colors="primary:#6366f1"
+          style={{ width: "75px", height: "75px", position: "absolute", bottom: "32%", right: "14%", opacity: 0.22 }}
+        ></lord-icon>
       </div>
 
-      {/* Heading */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight
-                     bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900
-                     bg-clip-text text-transparent mb-4 sm:mb-6 relative z-10">
-        CampusVault
-      </h1>
+      {/* Fade bottom */}
+      <div className="absolute bottom-0 left-0 w-full h-24 sm:h-32 bg-linear-to-b from-transparent to-white pointer-events-none" />
 
-      {/* Subtext */}
-      <p className="text-base sm:text-lg text-slate-600 max-w-2xl mb-6 sm:mb-8 leading-relaxed relative z-10 px-2">
-        A centralized ecosystem for managing semester-wise academic 
-        resources with clarity and efficiency.
-      </p>
+      {/* Ambient blobs */}
+      <div className="absolute -top-40 -left-40 w-96 h-96 bg-indigo-400/20 rounded-full blur-[120px]" />
+      <div className="absolute top-1/3 -right-40 w-96 h-96 bg-pink-400/20 rounded-full blur-[120px]" />
 
-      {/* CTA */}
-      <Button
-        size="lg"
-        onClick={() => navigate("/upload")}
-        className="px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg rounded-2xl cursor-pointer
-                   bg-gradient-to-r from-indigo-600 to-purple-600 
-                   hover:from-indigo-700 hover:to-purple-700
-                   text-white shadow-lg shadow-indigo-500/20
-                   transition-all duration-300 hover:scale-105 relative z-10"
+      {/* Animated Content Wrapper */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+        className="relative z-10 flex flex-col items-center"
       >
-        Upload Document
-      </Button>
+
+        {/* Badge */}
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 30, filter: "blur(12px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="mb-5 sm:mb-6 px-4 py-2 rounded-full bg-indigo-50 text-indigo-600 text-xs sm:text-sm font-medium"
+        >
+          📂 Smart Academic Platform
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h1
+          variants={{
+            hidden: { opacity: 0, y: 40, filter: "blur(12px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-5 sm:mb-6"
+        >
+          <span className="text-slate-900">Campus</span>
+          <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Vault
+          </span>
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 40, filter: "blur(12px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-sm sm:text-base md:text-lg text-slate-600 max-w-md sm:max-w-xl md:max-w-2xl mb-6 sm:mb-8 leading-relaxed"
+        >
+          A centralized ecosystem for managing semester-wise academic resources
+          with clarity and efficiency.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 40, filter: "blur(12px)" },
+            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+          }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 w-full sm:w-auto"
+        >
+          <Button
+            size="lg"
+            onClick={() => navigate("/upload")}
+            className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg rounded-2xl bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105"
+          ><lord-icon
+  src="https://cdn.lordicon.com/vjgknpfx.json"
+  trigger="hover"
+  colors="primary:#ffffff,secondary:#e5d1fa"
+  style={{ width: "25px", height: "25px" }}
+></lord-icon>
+            Upload Document
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => {
+              document
+                .getElementById("departments")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg rounded-2xl border-slate-300 hover:bg-slate-100"
+          >
+            <lord-icon
+  src="https://cdn.lordicon.com/wjyqkiew.json"
+  trigger="hover"
+  colors="primary:#4f46e5"
+  style={{ width: "20px", height: "20px" }}
+></lord-icon>
+            Browse Resources
+          </Button>
+        </motion.div>
+
+      </motion.div>
     </section>
 
-
-    {/* DEPARTMENT SECTION (Covers Hero on Scroll) */}
+    {/* DEPARTMENT SECTION */}
     <section
-      className="relative z-20 -mt-24 sm:-mt-32
-                 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 xl:px-14 py-12 sm:py-16 lg:pb-20 lg:pt-20
-                 rounded-2xl sm:rounded-3xl lg:rounded-4xl
-                 bg-white
-                 shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.08)]
-                 box-border"
+      id="departments"
+      className="relative z-20 -mt-32 max-w-7xl mx-auto px-14 pb-20 pt-20 rounded-[60px] bg-white shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.08)]"
     >
-
-      <div className="mb-8 sm:mb-14">
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-2 sm:mb-4">
+      <div className="mb-14">
+        <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
           Explore Departments
         </h2>
-        <p className="text-slate-500 text-base sm:text-lg font-light max-w-xl">
+        <p className="text-slate-500 text-lg font-light max-w-xl">
           Discover resources organized by academic streams.
         </p>
         <div className="mt-6 h-1 w-12 bg-blue-600 rounded-full" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {Departments.map((dept, index) => (
           <DepartmentCard
             key={index}
@@ -119,10 +216,8 @@ function Home() {
         ))}
       </div>
     </section>
-
   </div>
-
-  );
+);
 }
 
 export default Home;

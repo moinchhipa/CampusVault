@@ -100,7 +100,7 @@ const UploadForm = () => {
   return (
     <div
       className="min-h-screen w-full min-w-0 flex items-center justify-center overflow-x-hidden
-                bg-gradient-to-br from-white via-slate-50 to-slate-100
+                bg-linear-to-br from-white via-slate-50 to-slate-100
                 p-4 sm:p-6 relative"
     >
       {/* Soft ambient background */}
@@ -119,7 +119,7 @@ const UploadForm = () => {
           className="absolute top-4 left-4 text-slate-500 hover:text-slate-900"
           onClick={() => navigate(-1)}
         >
-          ← Back
+           <i class="fa-solid fa-angle-left"></i> Back
         </Button>
 
         <CardHeader className="pt-10">

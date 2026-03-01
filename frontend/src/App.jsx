@@ -9,11 +9,12 @@ import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MaterialsPage from "./components/MaterialsPage";
 import PreviewPage from "./components/PreviewPage";
+import Profile from "./components/Profile";
 
 function App() {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-gray-50 w-full min-w-0 overflow-x-hidden">
+     
         <Navbar />
         <Toaster
           position="top-center"
@@ -29,12 +30,13 @@ function App() {
           }}
         />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/show" element={<MaterialsPage />} />
           <Route path="/preview/:id" element={<PreviewPage />} />
-
           <Route
             path="/upload"
             element={
@@ -46,7 +48,7 @@ function App() {
         </Routes>
 
         <Footer />
-      </div>
+   
     </>
   );
 }

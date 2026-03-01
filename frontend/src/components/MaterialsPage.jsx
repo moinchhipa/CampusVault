@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import API from "../api/axios";
 import MaterialCard from "./ui/MaterialCard";
+import { Button } from "@/components/ui/button"
+
 import {
   Select,
   SelectContent,
@@ -30,7 +32,7 @@ const MaterialsPage = () => {
   const [loading, setLoading] = useState(true);
   const [filterSemester, setFilterSemester] = useState("all");
   const [filterType, setFilterType] = useState("all");
-
+const navigate = useNavigate(); 
   useEffect(() => {
     const fetchMaterials = async () => {
       setLoading(true);
@@ -65,21 +67,28 @@ const MaterialsPage = () => {
   return (
     <div className="relative min-h-screen bg-[#f8fafc] w-full min-w-0 overflow-x-hidden">
       {/* Background — match Home */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-slate-100 -z-10" />
+      <div className="absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-100 -z-10" />
 
       {/* Soft ambient blobs */}
-      <div className="absolute -top-40 -left-40 w-[32rem] h-[32rem] bg-indigo-400/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
-      <div className="absolute top-1/4 -right-40 w-[32rem] h-[32rem] bg-pink-400/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-lg h-128 bg-indigo-400/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 -right-40 w-lg h-128 bg-pink-400/20 rounded-full blur-[120px] -z-10 pointer-events-none" />
 
       {/* Content section — full width container, no extra right margin */}
       <div className="w-full px-4 sm:px-6 lg:px-8 py-6 sm:py-8 box-border">
         <section
-          className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14 lg:py-20
+          className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-14 lg:py-10
                      rounded-2xl sm:rounded-3xl lg:rounded-4xl
                      bg-white
                      shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.08)]
                      box-border"
         >
+           <Button
+          variant="ghost"
+          className="mb-8 text-slate-500 hover:text-slate-900"
+          onClick={() => navigate(-1)}
+        >
+           <i className="fa-solid fa-angle-left"></i> Back
+        </Button>
         <div className="mb-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
             {departmentLabel ? `${departmentLabel} Materials` : "All Materials"}
@@ -93,7 +102,7 @@ const MaterialsPage = () => {
         </div>
 
         <div className="flex flex-wrap gap-4 sm:gap-6 mb-8 items-end">
-          <div className="space-y-2 min-w-[140px]">
+          <div className="space-y-2 min-w-35">
             <Label className="text-slate-600 font-medium">Semester</Label>
             <Select value={filterSemester} onValueChange={setFilterSemester}>
               <SelectTrigger
@@ -112,7 +121,7 @@ const MaterialsPage = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className="space-y-2 min-w-[160px]">
+          <div className="space-y-2 min-w-40">
             <Label className="text-slate-600 font-medium">Type</Label>
             <Select value={filterType} onValueChange={setFilterType}>
               <SelectTrigger

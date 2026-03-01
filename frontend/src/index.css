@@ -118,13 +118,11 @@
   * {
     @apply border-border outline-ring/50;
   }
-  html {
-    @apply overflow-x-hidden;
-  }
+  
   body {
-    @apply bg-background text-foreground overflow-x-hidden w-full min-w-0;
+    @apply bg-background text-foreground w-full min-w-0;
   }
   #root {
-    @apply w-full min-w-0 overflow-x-hidden;
+    @apply w-full min-w-0;
   }
 }
