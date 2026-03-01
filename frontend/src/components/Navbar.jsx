@@ -23,29 +23,29 @@ const Navbar = () => {
                     bg-white/50 backdrop-blur-md 
                     border-b border-slate-200/60">
 
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2 min-w-0">
 
         {/* Logo */}
-        <h1 className="text-2xl font-bold tracking-tight text-slate-800">
-          <Link to="/" className="hover:text-indigo-600 transition-colors">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-slate-800 truncate min-w-0">
+          <Link to="/home" className="hover:text-indigo-600 transition-colors">
             CampusVault
           </Link>
         </h1>
 
         {/* Right Side */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0">
           {!token ? (
             <>
               <Link
                 to="/login"
-                className="text-slate-600 hover:text-slate-900 transition-colors duration-200"
+                className="text-sm sm:text-base text-slate-600 hover:text-slate-900 transition-colors duration-200"
               >
                 Login
               </Link>
 
               <Link
                 to="/register"
-                className="px-5 py-2 rounded-xl
+                className="px-3 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base rounded-xl
                 bg-gradient-to-r from-indigo-600 to-purple-600
                 text-white shadow-md
                 hover:shadow-lg
@@ -57,7 +57,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={handleLogout}
-              className="px-5 py-2 rounded-xl
+              className="px-3 sm:px-5 py-1.5 sm:py-2 text-sm sm:text-base rounded-xl
                 bg-gradient-to-r from-indigo-600 to-purple-600
                 text-white shadow-md cursor-pointer
                 hover:shadow-lg

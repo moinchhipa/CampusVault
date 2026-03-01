@@ -99,19 +99,19 @@ const UploadForm = () => {
   };
   return (
     <div
-      className="min-h-screen flex items-center justify-center 
-                bg-linear-to-br from-white via-slate-50 to-slate-100 
-                p-6 relative overflow-hidden"
+      className="min-h-screen w-full min-w-0 flex items-center justify-center overflow-x-hidden
+                bg-gradient-to-br from-white via-slate-50 to-slate-100
+                p-4 sm:p-6 relative"
     >
       {/* Soft ambient background */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
 
       <Card
-        className="w-full max-w-2xl 
+        className="w-full max-w-2xl mx-4 sm:mx-6
                    bg-white/80 backdrop-blur-md
                    border border-slate-200
-                   shadow-xl rounded-2xl relative z-10"
+                   shadow-xl rounded-2xl relative z-10 box-border"
       >
         {/* Back Button */}
         <Button
@@ -272,7 +272,7 @@ const UploadForm = () => {
             {/* Submit */}
             <Button
               type="submit"
-              className="w-full py-6 text-base rounded-xl
+              className="w-full py-6 text-base rounded-xl cursor-pointer
                      bg-linear-to-r from-indigo-600 to-purple-600
                      hover:from-indigo-700 hover:to-purple-700
                      text-white shadow-md hover:shadow-lg

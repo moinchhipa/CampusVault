@@ -7,11 +7,13 @@ import UploadForm from "./components/UploadForm";
 import { Toaster } from "react-hot-toast";
 import Home from "./components/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MaterialsPage from "./components/MaterialsPage";
+import PreviewPage from "./components/PreviewPage";
 
 function App() {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-gray-50">
+      <div className="flex flex-col min-h-screen bg-gray-50 w-full min-w-0 overflow-x-hidden">
         <Navbar />
         <Toaster
           position="top-center"
@@ -30,6 +32,9 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/show" element={<MaterialsPage />} />
+          <Route path="/preview/:id" element={<PreviewPage />} />
+
           <Route
             path="/upload"
             element={
