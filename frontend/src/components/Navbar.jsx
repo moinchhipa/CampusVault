@@ -25,18 +25,24 @@ const Navbar = () => {
                     border-b border-slate-200/60"
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2 min-w-0">
-        {/* Logo */}
-        <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight truncate min-w-0">
-          <Link
-            to="/home"
-            className="hover:opacity-90 transition-all duration-300"
-          >
-            <span className="text-slate-800">Campus</span>
-            <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              Vault
-            </span>
-          </Link>
-        </h1>
+        {/* Logo */} 
+       <Link
+  to="/home"
+  className="flex items-center gap-2 shrink-0"
+>
+  <img
+    src="/logo.png"
+    alt="CampusVault logo"
+    className="h-8 w-12"
+  />
+
+  <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight">
+    <span className="text-slate-800">Campus</span>
+    <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+      Vault
+    </span>
+  </h1>
+</Link>
 
         {/* Right Side */}
         <div className="flex items-center gap-3 sm:gap-6 shrink-0">

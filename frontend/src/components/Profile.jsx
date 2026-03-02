@@ -73,7 +73,7 @@ const Profile = () => {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
               <div className="flex items-center gap-5">
                 {/* Avatar */}
-                <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md flex-shrink-0">
+                <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-md shrink-0">
                   <i className="fa-solid fa-user text-white text-2xl"></i>
                 </div>
 

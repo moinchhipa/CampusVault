@@ -33,12 +33,12 @@ const MaterialCardUser = ({ material, setMaterials }) => {
     >
       <div
         className="absolute inset-0 rounded-2xl
-                   bg-gradient-to-r from-indigo-400/0 via-indigo-400/20 to-purple-400/10
+                   bg-linear-to-r from-indigo-400/0 via-indigo-400/20 to-purple-400/10
                    opacity-0 group-hover:opacity-100 transition duration-500 blur-xl -z-10"
         aria-hidden
       />
       <div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-200/35 to-transparent opacity-60 pointer-events-none"
+        className="absolute inset-0 rounded-2xl bg-linear-to-br from-indigo-200/35 to-transparent opacity-60 pointer-events-none"
         aria-hidden
       />
 
