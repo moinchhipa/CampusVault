@@ -14,13 +14,12 @@ import Profile from "./components/Profile";
 function App() {
   return (
     <>
-     
-        <Navbar />
-       <Toaster
+      <Navbar />
+      <Toaster
         position="top-right"
         containerStyle={{
-    top: 80   
-  }}
+          top: 80,
+        }}
         toastOptions={{
           duration: 2500,
           success: {
@@ -30,8 +29,8 @@ function App() {
               borderRadius: "38px",
               padding: "10px",
               border: "1px solid #6ee7b7",
-              boxShadow: "0 20px 40px -18px rgba(16,185,129,0.35)"
-            }
+              boxShadow: "0 20px 40px -18px rgba(16,185,129,0.35)",
+            },
           },
           error: {
             style: {
@@ -40,31 +39,37 @@ function App() {
               borderRadius: "38px",
               padding: "10px",
               border: "1px solid #fca5a5",
-              boxShadow: "0 20px 40px -18px rgba(239,68,68,0.35)"
-            }
-          }
+              boxShadow: "0 20px 40px -18px rgba(239,68,68,0.35)",
+            },
+          },
         }}
       />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/show" element={<MaterialsPage />} />
-          <Route path="/preview/:id" element={<PreviewPage />} />
-          <Route
-            path="/upload"
-            element={
-              <ProtectedRoute>
-                <UploadForm />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/show" element={<MaterialsPage />} />
+        <Route path="/preview/:id" element={<PreviewPage />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/upload"
+          element={
+            <ProtectedRoute>
+              <UploadForm />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
 
-        <Footer />
-   
+      <Footer />
     </>
   );
 }

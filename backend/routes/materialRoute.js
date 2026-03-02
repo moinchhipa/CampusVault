@@ -14,6 +14,6 @@ router.post(
 
 router.get("/fetchapproved", materialController.fetchMaterial);
 
-router.get("/fetchbyid/:id", materialController.fetchbyid)
+router.get("/fetchbyid/:id", materialController.fetchbyid);
 
 module.exports = router;

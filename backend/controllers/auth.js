@@ -33,12 +33,12 @@ module.exports.login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({ message: "User not exists" });
+      return res.status(401).json({ message: "User not exists" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      res.json({ message: "Invalid Password" });
+      return res.status(401).json({ message: "Invalid Password" });
     }
 
     const token = jwt.sign(
@@ -50,6 +50,20 @@ module.exports.login = async (req, res) => {
     );
 
     res.json({ message: "Login succesfull", token });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+module.exports.fetchuser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.json({ message: "User not found" });
+    }
+
+    res.json(user);
   } catch (e) {
     console.log(e);
   }

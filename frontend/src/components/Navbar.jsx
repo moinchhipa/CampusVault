@@ -26,14 +26,17 @@ const Navbar = () => {
     >
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2 min-w-0">
         {/* Logo */}
-       <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight truncate min-w-0">
-  <Link to="/home" className="hover:opacity-90 transition-all duration-300">
-    <span className="text-slate-800">Campus</span>
-    <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-      Vault
-    </span>
-  </Link>
-</h1>
+        <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight truncate min-w-0">
+          <Link
+            to="/home"
+            className="hover:opacity-90 transition-all duration-300"
+          >
+            <span className="text-slate-800">Campus</span>
+            <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Vault
+            </span>
+          </Link>
+        </h1>
 
         {/* Right Side */}
         <div className="flex items-center gap-3 sm:gap-6 shrink-0">
@@ -43,7 +46,7 @@ const Navbar = () => {
                 to="/login"
                 className="text-sm sm:text-base text-slate-600 hover:text-slate-900 transition-colors duration-200 flex gap-3 items-center justify-center"
               >
-              <i class="fa-solid fa-right-to-bracket"></i> Login
+                <i className="fa-solid fa-right-to-bracket"></i> Login
               </Link>
 
               <Link
@@ -54,12 +57,13 @@ const Navbar = () => {
                 hover:shadow-lg
                 transition-all duration-300 hover:-translate-y-0.5 flex gap-3 items-center justify-center"
               >
-               <i class="fa-solid fa-user-plus"></i> Register
+                <i className="fa-solid fa-user-plus"></i> Register
               </Link>
             </>
           ) : (
-           <div onClick={() => navigate("/profile")}
-  className="
+            <div
+              onClick={() => navigate("/profile")}
+              className="
     w-11 h-11 rounded-full
     bg-linear-to-br from-indigo-50 to-purple-50
     border border-indigo-100
@@ -69,14 +73,14 @@ const Navbar = () => {
     transition-all duration-300
     hover:shadow-md hover:scale-105
   "
->
-  <lord-icon
-    src="https://cdn.lordicon.com/kdduutaw.json"
-    trigger="hover"
-    colors="primary:#4f46e5,secondary:#7c3aed"
-    style={{ width: "26px", height: "26px" }}
-  ></lord-icon>
-</div>
+            >
+              <lord-icon
+                src="https://cdn.lordicon.com/kdduutaw.json"
+                trigger="hover"
+                colors="primary:#4f46e5,secondary:#7c3aed"
+                style={{ width: "26px", height: "26px" }}
+              ></lord-icon>
+            </div>
 
             // <button
             //   onClick={handleLogout}

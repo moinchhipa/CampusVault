@@ -38,7 +38,8 @@ exports.fetchMaterial = async (req, res) => {
   try {
     const filter = { status: "approved" };
     if (req.query.department) filter.department = req.query.department;
-    if (req.query.semester) filter.semester = Number(req.query.semester) || req.query.semester;
+    if (req.query.semester)
+      filter.semester = Number(req.query.semester) || req.query.semester;
     if (req.query.type) filter.type = req.query.type;
 
     const materials = await Material.find(filter)

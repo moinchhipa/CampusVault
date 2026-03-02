@@ -8,6 +8,7 @@ const cors = require("cors");
 
 const authRoute = require("./routes/auth");
 const materialRoutes = require("./routes/materialRoute");
+const usermaterialRoute = require("./routes/usermaterialRoute");
 
 app.use(cors());
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoute);
 app.use("/api/material", materialRoutes);
+app.use("/api/user", usermaterialRoute);
 
 app.get("/", (req, res) => {
   res.send("root is working");
