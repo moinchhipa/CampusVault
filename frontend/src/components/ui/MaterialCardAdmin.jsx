@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import API from "@/api/axios";
+import toast from "react-hot-toast";
 
 const MaterialCardUser = ({ material, setMaterials }) => {
   const navigate = useNavigate();
@@ -11,10 +12,20 @@ const MaterialCardUser = ({ material, setMaterials }) => {
     navigate(`/preview/${material._id}`);
   };
 
-  const onDelete = async (id) => {
+  const handleApprove = async (id) => {
     try {
-      await API.delete(`/user/delete/${id}`);
-      toast.success("Material deleted!");
+      await API.patch(`/admin/${id}`);
+      toast.success("Material approved!");
+      setMaterials((prev) => prev.filter((m) => m._id !== id));
+    } catch (e) {
+      toast.error("Failed to Approve")
+    }
+  };
+
+  const handleReject = async (id) => {
+    try {
+      await API.delete(`/admin/${id}`);
+      toast.success("Material rejected");
       setMaterials((prev) => prev.filter((m) => m._id !== id));
     } catch (e) {
       toast.error("Failed to delete material");
@@ -84,16 +95,28 @@ const MaterialCardUser = ({ material, setMaterials }) => {
           >
             Preview / Download
           </Button>
+        </div>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => handleApprove(material._id)}
+            variant="outline"
+            className="flex-1 rounded-xl border-green-100
+                         text-green-600 cursor-pointer
+                         hover:bg-green-50 hover:border-green-300 hover:text-green-700
+                         focus-visible:ring-2 focus-visible:ring-green-500/50"
+          >
+            <i className="fa-solid fa-check mr-2"></i> Approve
+          </Button>
 
           <Button
-            onClick={() => onDelete(material._id)}
+            onClick={() => handleReject(material._id)}
             variant="outline"
-            className="w-full rounded-xl border-red-100
+            className="flex-1 rounded-xl border-red-100
                          text-red-500 cursor-pointer
                          hover:bg-red-50 hover:border-red-200 hover:text-red-600
                          focus-visible:ring-2 focus-visible:ring-red-500/50"
           >
-            <i className="fa-solid fa-trash mr-2"></i> Delete
+            <i className="fa-solid fa-xmark mr-2"></i> Reject
           </Button>
         </div>
       </CardContent>

@@ -119,7 +119,7 @@ const UploadForm = () => {
           className="absolute top-4 left-4 text-slate-500 hover:text-slate-900 cursor-pointer"
           onClick={() => navigate(-1)}
         >
-           <i class="fa-solid fa-angle-left"></i> Back
+           <i className="fa-solid fa-angle-left"></i> Back
         </Button>
 
         <CardHeader className="pt-10">
@@ -281,7 +281,7 @@ const UploadForm = () => {
            focus-visible:border-indigo-500
            focus-visible:outline-none "
             >
-             <i class="fa-solid fa-plus"></i> Upload Document
+             <i className="fa-solid fa-plus"></i> Upload Document
             </Button>
           </form>
         </CardContent>

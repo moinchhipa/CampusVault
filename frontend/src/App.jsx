@@ -6,10 +6,12 @@ import Login from "./components/Login";
 import UploadForm from "./components/UploadForm";
 import { Toaster } from "react-hot-toast";
 import Home from "./components/Home";
-import ProtectedRoute from "./components/ProtectedRoute";
 import MaterialsPage from "./components/MaterialsPage";
 import PreviewPage from "./components/PreviewPage";
 import Profile from "./components/Profile";
+import AdminProfile from "./components/AdminProfile";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
 
 function App() {
   return (
@@ -51,6 +53,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/show" element={<MaterialsPage />} />
         <Route path="/preview/:id" element={<PreviewPage />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminProfile />
+            </AdminRoute>
+          }
+        />
         <Route
           path="/profile"
           element={
