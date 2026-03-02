@@ -45,7 +45,7 @@ function Home() {
     <div className="absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-100 -z-10"></div>
 
     {/* HERO SECTION */}
-    <section className="sticky top-0 min-h-screen flex flex-col pt-20 items-center text-center px-6 sm:px-8 overflow-hidden">
+    <section className="sticky top-0 min-h-screen flex flex-col pt-20 items-center text-center px-6 sm:px-8 overflow-hidden ">
 
       {/* ICONS */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none hidden sm:block">
@@ -154,37 +154,76 @@ function Home() {
           transition={{ duration: 0.4, ease: "easeOut" }}
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-2 w-full sm:w-auto"
         >
-          <Button
-            size="lg"
-            onClick={() => navigate("/upload")}
-            className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg rounded-2xl bg-linear-to-r from-indigo-600 to-purple-600 text-white shadow-lg transition-all duration-300 hover:scale-105"
-          ><lord-icon
-  src="https://cdn.lordicon.com/vjgknpfx.json"
-  trigger="hover"
-  colors="primary:#ffffff,secondary:#e5d1fa"
-  style={{ width: "25px", height: "25px" }}
-></lord-icon>
-            Upload Document
-          </Button>
+           <Button
+    size="lg"
+    onClick={() => navigate("/upload")}
+    className="relative w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 
+               text-base sm:text-lg rounded-2xl
+               bg-linear-to-r from-indigo-600 via-indigo-500 to-purple-600
+               text-white font-medium
+               shadow-[0_15px_40px_-12px_rgba(79,70,229,0.45)]
+               hover:shadow-[0_20px_45px_-15px_rgba(79,70,229,0.6)]
+               transition-all duration-500
+               hover:-translate-y-1
+               active:scale-95
+               overflow-hidden group cursor-pointer"
+  >
 
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => {
-              document
-                .getElementById("departments")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-base sm:text-lg rounded-2xl border-slate-300 hover:bg-slate-100"
-          >
-            <lord-icon
-  src="https://cdn.lordicon.com/wjyqkiew.json"
-  trigger="hover"
-  colors="primary:#4f46e5"
-  style={{ width: "20px", height: "20px" }}
-></lord-icon>
-            Browse Resources
-          </Button>
+    {/* Shine Animation */}
+    <span className="absolute inset-0 bg-white/20 rounded-[10px]
+                     -translate-x-full group-hover:translate-x-full
+                     transition-transform duration-500"/>
+
+    <span className="relative flex items-center gap-3">
+      <lord-icon
+        src="https://cdn.lordicon.com/vjgknpfx.json"
+        trigger="hover"
+        colors="primary:#ffffff,secondary:#e5d1fa"
+        style={{ width: "26px", height: "26px" }}
+      />
+      Upload Document
+    </span>
+  </Button>
+  <Button
+  size="lg"
+  variant="outline"
+  onClick={() => {
+    document
+      .getElementById("departments")
+      ?.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="relative w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6
+             text-base sm:text-lg rounded-2xl
+             border border-slate-200
+             bg-white/70 backdrop-blur-md
+             hover:bg-white
+             transition-all duration-500
+             hover:-translate-y-1
+             hover:shadow-[0_15px_40px_-15px_rgba(0,0,0,0.12)]
+             active:scale-95
+             group cursor-pointer"
+>
+
+  <span className="flex items-center gap-3 text-slate-700 font-medium
+                   group-hover:text-indigo-600
+                   transition-colors duration-300">
+
+    <lord-icon
+      src="https://cdn.lordicon.com/wjyqkiew.json"
+      trigger="hover"
+      colors="primary:#4f46e5"
+      style={{ width: "22px", height: "22px" }}
+    />
+
+    Browse Resources
+  </span>
+
+  {/* Soft Inner Glow Hover */}
+  <span className="absolute inset-0 rounded-2xl
+                   bg-linear-to-r from-indigo-500/10 to-purple-500/10
+                   opacity-0 group-hover:opacity-100
+                   transition-opacity duration-500 pointer-events-none"/>
+</Button>
         </motion.div>
 
       </motion.div>

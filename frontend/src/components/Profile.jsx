@@ -13,7 +13,7 @@ const Profile = () => {
     <div className="min-h-screen flex items-center justify-center bg-slate-50">
        <Button
           variant="ghost"
-          className="absolute top-24 left-2 text-slate-500 hover:text-slate-900"
+          className="absolute top-24 left-2 text-slate-500 hover:text-slate-900 cursor-pointer"
           onClick={() => navigate(-1)}
         >
            <i className="fa-solid fa-angle-left"></i> Back
@@ -31,10 +31,10 @@ const Profile = () => {
             bg-linear-to-r from-indigo-600 to-purple-600
             text-white
             hover:shadow-md
-            transition-all duration-300
+            transition-all duration-300 cursor-pointer
           "
         >
-          Logout
+         <i class="fa-solid fa-right-from-bracket rotate-180 mr-1"></i>Logout
         </button>
 
       </div>

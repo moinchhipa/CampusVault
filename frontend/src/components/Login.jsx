@@ -60,7 +60,7 @@ const Login = () => {
     {/* Back Button */}
     <Button
       variant="ghost"
-      className="absolute top-4 left-4 text-slate-500 hover:text-slate-900"
+      className="absolute top-4 left-4 text-slate-500 hover:text-slate-900 cursor-pointer"
       onClick={() => navigate("/")}
     >
      <i class="fa-solid fa-angle-left"></i>  Back
@@ -118,9 +118,9 @@ const Login = () => {
                      transition-all duration-300 hover:-translate-y-0.5 focus-visible:ring-4 
            focus-visible:ring-indigo-500/30 
            focus-visible:border-indigo-500
-           focus-visible:outline-none"
+           focus-visible:outline-none cursor-pointer flex items-center justify-center"
         >
-          Login
+           <i class="fa-solid fa-right-to-bracket"></i> Login
         </Button>
 
       </form>

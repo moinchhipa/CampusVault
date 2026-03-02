@@ -16,19 +16,35 @@ function App() {
     <>
      
         <Navbar />
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            duration: 3000,
-            className: "animate-slide-in",
+       <Toaster
+        position="top-right"
+        containerStyle={{
+    top: 80   
+  }}
+        toastOptions={{
+          duration: 2500,
+          success: {
             style: {
-              background: "#111",
-              color: "#fff",
-              borderRadius: "22px",
-              padding: "14px 18px",
-            },
-          }}
-        />
+              background: "linear-gradient(135deg,#ecfdf5,#ffffff)",
+              color: "#065f46",
+              borderRadius: "38px",
+              padding: "10px",
+              border: "1px solid #6ee7b7",
+              boxShadow: "0 20px 40px -18px rgba(16,185,129,0.35)"
+            }
+          },
+          error: {
+            style: {
+              background: "linear-gradient(135deg,#fef2f2,#ffffff)",
+              color: "#991b1b",
+              borderRadius: "38px",
+              padding: "10px",
+              border: "1px solid #fca5a5",
+              boxShadow: "0 20px 40px -18px rgba(239,68,68,0.35)"
+            }
+          }
+        }}
+      />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
