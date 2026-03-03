@@ -9,9 +9,13 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const materialRoutes = require("./routes/materialRoute");
 const usermaterialRoute = require("./routes/usermaterialRoute");
-const adminRoute = require("./routes/adminRoute")
+const adminRoute = require("./routes/adminRoute");
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://campusvaultorg.vercel.app",
+  }),
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoute);
 app.use("/api/material", materialRoutes);
 app.use("/api/user", usermaterialRoute);
-app.use("/api/admin", adminRoute)
+app.use("/api/admin", adminRoute);
 
 app.get("/", (req, res) => {
   res.send("root is working");
