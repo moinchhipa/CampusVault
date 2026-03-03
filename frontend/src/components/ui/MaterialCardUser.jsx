@@ -13,7 +13,7 @@ const MaterialCardUser = ({ material, setMaterials }) => {
 
   const onDelete = async (id) => {
     try {
-      await API.delete(`/user/delete/${id}`);
+      await API.delete(`/user/${id}`);
       toast.success("Material deleted!");
       setMaterials((prev) => prev.filter((m) => m._id !== id));
     } catch (e) {
