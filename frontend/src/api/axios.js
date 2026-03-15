@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://campusvault-sif5.onrender.com/api",
+  baseURL: "https://campusvault-f97x.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
