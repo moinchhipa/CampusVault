@@ -42,7 +42,7 @@ function Home() {
   return (
   <div className="relative bg-[#f8fafc]">
     {/* Background */}
-    <div className="absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-100 -z-10"></div>
+    <div className="absolute inset-0 bg-linear-to-br from-white via-slate-50 to-slate-100 -z-10 "></div>
 
     {/* HERO SECTION */}
     <section className="sticky top-0 min-h-screen flex flex-col pt-20 items-center text-center px-6 sm:px-8 overflow-hidden ">
@@ -232,7 +232,7 @@ function Home() {
     {/* DEPARTMENT SECTION */}
     <section
       id="departments"
-      className="relative z-20 -mt-32 max-w-7xl mx-auto px-14 pb-20 pt-20 rounded-[60px] bg-white shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.08)]"
+      className="relative z-20 -mt-32 max-w-7xl mx-auto px-4 sm:px-14 pb-20 pt-20 rounded-[60px] bg-white shadow-[0_-20px_60px_-15px_rgba(0,0,0,0.08)] mb-10"
     >
       <div className="mb-14">
         <h2 className="text-4xl font-extrabold text-slate-900 tracking-tight mb-4">

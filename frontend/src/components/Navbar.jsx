@@ -24,19 +24,19 @@ const Navbar = () => {
                     bg-white/50 backdrop-blur-md 
                     border-b border-slate-200/60"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2 min-w-0">
+      <div className="w-full max-w-7xl mx-auto px-2 sm:px-6 py-3 sm:py-4 flex justify-between items-center gap-2 min-w-0">
         {/* Logo */} 
        <Link
   to="/home"
-  className="flex items-center gap-2 shrink-0"
+  className="flex items-center gap-1 shrink-0"
 >
   <img
     src="/logo.png"
     alt="CampusVault logo"
-    className="h-8 w-12"
+    className="h-6 w-8 md:h-8 md:w-12 "
   />
 
-  <h1 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight">
+  <h1 className="text-sm sm:text-xl md:text-2xl font-bold tracking-tight">
     <span className="text-slate-800">Campus</span>
     <span className="bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
       Vault
@@ -52,7 +52,7 @@ const Navbar = () => {
                 to="/login"
                 className="text-sm sm:text-base text-slate-600 hover:text-slate-900 transition-colors duration-200 flex gap-3 items-center justify-center"
               >
-                <i className="fa-solid fa-right-to-bracket"></i> Login
+                <i className="fa-solid fa-right-to-bracket hidden sm:inline"></i> Login
               </Link>
 
               <Link

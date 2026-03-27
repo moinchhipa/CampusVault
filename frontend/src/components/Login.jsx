@@ -51,7 +51,7 @@ const Login = () => {
     <div
       className="min-h-screen flex items-center justify-center 
                 bg-linear-to-br from-white via-slate-50 to-slate-100 
-                p-6 relative overflow-hidden"
+                p-2 sm:p-6 relative overflow-hidden"
     >
       {/* Soft ambient background */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl"></div>

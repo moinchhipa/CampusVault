@@ -12,11 +12,13 @@ import Profile from "./components/Profile";
 import AdminProfile from "./components/AdminProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Toaster
         position="top-right"
         containerStyle={{
