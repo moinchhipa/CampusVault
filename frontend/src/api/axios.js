@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://campusvault-f97x.onrender.com/api",
+  baseURL: "https://campusvault.duckdns.org/api",
 });
 
 API.interceptors.request.use((req) => {
