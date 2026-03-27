@@ -117,10 +117,10 @@ const Profile = () => {
           {/* My Materials Section */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-slate-800 tracking-tight mb-1">
-              My Uploads
+              Pending Approvals
             </h2>
             <p className="text-slate-500 text-base font-light">
-              Materials you have uploaded.
+              Review and manage submitted documents.
             </p>
           </div>
 
@@ -131,7 +131,7 @@ const Profile = () => {
           ) : materials.length === 0 ? (
             <div className="py-16 text-center">
               <p className="text-slate-500 text-lg">
-                You haven't uploaded any materials yet.
+                No pending submissions.
               </p>
             </div>
           ) : (
